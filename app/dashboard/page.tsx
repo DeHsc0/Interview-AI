@@ -34,7 +34,7 @@ export default function Dashboard () {
                     <p className="text-[16px] text-[#A1A1AA]">Manage your Interviews and candidates.</p>
                 </div>
                 <Dialog>
-                    <Form>
+                    {/* <Form>
                         <DialogTrigger asChild>
                             <Button className="items-center flex " size={"lg"}>
                                 <Plus></Plus>
@@ -44,7 +44,7 @@ export default function Dashboard () {
                         <FormField>
 
                         </FormField>
-                    </Form>
+                    </Form> */}
                 
                 </Dialog>
             </div>

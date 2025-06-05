@@ -17,7 +17,7 @@ import { Loader2} from "lucide-react"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
 import { toast, Toaster } from "sonner"
 
-export default function TESTPage() {
+export default function authPage() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [activeTab, setActiveTab] = useState("login")
@@ -131,7 +131,7 @@ export default function TESTPage() {
 
     let data : SignupData = userData as SignupData
 
-    if(data.role === "candidate"){                
+    if(data.role === "candidate"){               
         data.companyName = undefined        
     } else if (data.role == "hr" && !data.companyName){
         toast("Please provide the Company Name")
