@@ -4,52 +4,77 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init  
 
 generator client {
-  provider = "prisma-client-js"   
-  output   = "../generated/prisma" 
-  }  
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
 
-datasource db {   
-  provider = "postgresql"   
+datasource db {
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-enum Role {   
-  hr   
-  candidate 
-} 
+enum Role {
+  hr
+  candidate
+}
 
-enum Gender {   
-  male   
-  female 
-  }
+enum Gender {
+  male
+  female
+}
 
-enum Status {   
-  completed  
-  ongoing    
-  notStarted 
-}   
+enum Status {
+  completed
+  ongoing
+  notStarted
+}
 
-model User {   
-  id                   String      @id @default(uuid())   
-  companyName          String?   
-  email                String      @unique   
-  clerkId              String      @unique   
-  firstName            String   
-  lastName             String   
-  role                 Role 
-  description          String?   
+model User {
+  id                   String      @id @default(uuid())
+  companyName          String?
+  email                String      @unique
+  clerkId              String      @unique
+  firstName            String
+  lastName             String
+  role                 Role
   github               String?
   linkedin             String?
   x                    String?
-  InterviewAsHr        Interview[] @relation("hr")   
-  InterviewAsCandidate Interview[] @relation("candidate") 
-  }  
-  
-model Interview {   
-  id          String  @id @default(uuid())   
-  hrId        String?    
-  Hr          User?   @relation("hr", fields: [hrId], references: [clerkId])   
-  candidateId String?   
-  candidate   User?   @relation("candidate", fields: [candidateId], references: [clerkId])   
-  Status      Status 
+  InterviewAsHr        Interview[] @relation("hr")
+  InterviewAsCandidate Interview[] @relation("candidate")
+}
+
+model Interview {
+  id             String           @id @default(uuid())
+  hrId           String?
+  jobRole        String
+  jobDescription String
+  resumeSummary  String
+  resumeScore    Int
+  Hr             User?            @relation("hr", fields: [hrId], references: [clerkId])
+  candidateId    String?
+  candidate      User?            @relation("candidate", fields: [candidateId], references: [clerkId])
+  Status         Status
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  joinedAt       DateTime?
+  report         InterviewReport?
+}
+
+model InterviewReport {
+  id           String     @id @default(uuid())
+  overallScore Int
+  conclusion   String
+  Interview    Interview  @relation(fields: [interviewId], references: [id])
+  interviewId  String     @unique
+  questions    Question[]
+}
+
+model Question {
+  id                String          @id @default(uuid())
+  question          String
+  answer            String
+  accuracy          Int
+  interviewReport   InterviewReport @relation(fields: [interviewReportId], references: [id])
+  interviewReportId String
 }

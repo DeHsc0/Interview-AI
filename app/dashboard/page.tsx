@@ -18,6 +18,7 @@ import { Form, FormField } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import  { HrDashboard } from "@/components/hrDashboard";
 
 
 
@@ -26,28 +27,9 @@ export default function Dashboard () {
 
 
     return (
-        <div className="bg-[#151515] p-8 flex flex-col justify-between w-full rounded-lg">
+        <div className="bg-[#151515] p-8 flex flex-col justify-between rounded-lg">
             <SidebarTrigger />  
-            <div className="mt-6 flex justify-between items-center w-full">
-                <div>
-                    <h1 className="text-2xl font-bold">Dashboard</h1>
-                    <p className="text-[16px] text-[#A1A1AA]">Manage your Interviews and candidates.</p>
-                </div>
-                <Dialog>
-                    {/* <Form>
-                        <DialogTrigger asChild>
-                            <Button className="items-center flex " size={"lg"}>
-                                <Plus></Plus>
-                                Create Interviews
-                            </Button>
-                        </DialogTrigger>
-                        <FormField>
-
-                        </FormField>
-                    </Form> */}
-                
-                </Dialog>
-            </div>
+            <HrDashboard/>
         </div>
     )
 

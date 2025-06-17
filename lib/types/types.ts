@@ -8,6 +8,13 @@ export enum Role {
     candidate
 }
 
+export interface interviewCreation {
+    jobRole : string,
+    jobDescription ?: string,
+    userId : string,
+    resume : File
+} 
+
 export interface SignupData {
     firstName : string
     lastName : string

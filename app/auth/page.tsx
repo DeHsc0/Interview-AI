@@ -131,7 +131,7 @@ export default function authPage() {
 
     let data : SignupData = userData as SignupData
 
-    if(data.role === "candidate"){               
+    if(data.role === "candidate"){                 
         data.companyName = undefined        
     } else if (data.role == "hr" && !data.companyName){
         toast("Please provide the Company Name")

@@ -9,7 +9,7 @@ export default function TESTPage() {
     const {isSignedIn} = useAuth()
 
     return (
-        <div>
+        <div className="space-x-12">
             <SignOutButton></SignOutButton>
             <SignInButton></SignInButton>
             <SignUpButton></SignUpButton>

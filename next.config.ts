@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig : NextConfig = {
+  allowedDevOrigins : ["https://rich-schools-stick.loca.lt"],
   async headers() {
     return [
       {

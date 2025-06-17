@@ -95,8 +95,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { state } = useSidebar();
 
   return (
-    <Sidebar collapsible="icon"  className="bg-gray-100 dark:bg-black w-[300px]" variant='inset'>
-      <SidebarHeader className="mr-1 mb-3 rounded-xl bg-white dark:bg-[#151515]">
+    <Sidebar collapsible="icon"  className="bg-gray-100 dark:bg-black w-[283px]" variant='inset'>
+      <SidebarHeader className="mb-3 rounded-xl bg-white dark:bg-[#151515]">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
@@ -112,7 +112,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent className="mr-1 mb-3 rounded-xl bg-white dark:bg-[#151515]">
+      <SidebarContent className="mb-3 rounded-xl bg-white dark:bg-[#151515]">
         <SidebarGroup>
           <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent className="flex flex-col gap-2">
@@ -147,7 +147,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="mr-1 rounded-xl bg-white dark:bg-[#151515] p-3">
+      <SidebarFooter className="rounded-xl bg-white dark:bg-[#151515] p-3">
         <h1>
           User Button
         </h1>
